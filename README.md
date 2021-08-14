@@ -23,7 +23,6 @@
          "price": 10.0,
          "qty": 500
          }'
-
          ```
 
 ### Product Endpoints
