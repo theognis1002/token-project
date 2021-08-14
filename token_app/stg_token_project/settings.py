@@ -31,7 +31,6 @@ DEBUG = config("DEBUG", cast=bool, default=False)
 
 ALLOWED_HOSTS = ["0.0.0.0"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "tokens",
+    "django-nose",
 ]
 
 MIDDLEWARE = [
@@ -137,7 +137,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-APPEND_SLASH = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -148,3 +147,11 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
+NOSE_ARGS = [
+    "--cover-erase",
+    "--cover-package=products",
+    "--verbosity=3"
+    # '--omit=*/migrations/*'
+]

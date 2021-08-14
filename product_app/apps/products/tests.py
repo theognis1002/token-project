@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from products import views
 from products.models import Product
-from products.serializers import ProductSerializer
+from products.serializers import AdminProductSerializer, ProductSerializer
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
@@ -25,7 +25,7 @@ class ProductTestCase(TestCase):
         self.assertEqual(product.price, 55.0)
 
 
-class ProductSerializerTestCase(TestCase):
+class ProductSerializersTestCase(TestCase):
     def setUp(self):
         self.product_attrs = {"name": "Nike sneakers", "qty": 5, "price": 125.0}
 
@@ -33,9 +33,27 @@ class ProductSerializerTestCase(TestCase):
 
         self.product = Product.objects.create(**self.product_attrs)
         self.serializer = ProductSerializer(instance=self.product)
+        self.admin_serializer = AdminProductSerializer(instance=self.product)
 
-    def test_contains_expected_fields(self):
+    def test_pub_serializer_contains_expected_fields(self):
         data = self.serializer.data
+
+        self.assertEqual(
+            set(data.keys()),
+            set(
+                [
+                    "id",
+                    "qty",
+                    "date_added",
+                    "description",
+                    "price",
+                    "name",
+                ]
+            ),
+        )
+
+    def test_admin_serializer_contains_expected_fields(self):
+        data = self.admin_serializer.data
 
         self.assertEqual(
             set(data.keys()),
