@@ -1,0 +1,98 @@
+[
+	{
+		"model": "products.product",
+		"pk": 2,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:51:20.305Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 3,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:51:38.867Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 4,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:51:40.903Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 5,
+		"fields": {
+			"name": "Hello",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 55,
+			"price": 33.0,
+			"date_added": "2021-08-12T23:51:41.720Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 6,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:56:52.030Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 7,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:56:55.242Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 8,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:56:57.794Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
+		"pk": 9,
+		"fields": {
+			"name": "Sneaker",
+			"description": "Air Jordans 1992. Red & Black.",
+			"qty": 1,
+			"price": 150.0,
+			"date_added": "2021-08-12T23:57:00.822Z",
+			"soft_delete": false
+		}
+	}
+]
