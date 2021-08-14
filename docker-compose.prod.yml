@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+    product_app:
+        build: 
+            context: ./product_app
+            dockerfile: Dockerfile.prod
+        command: gunicorn stg_project.wsgi:application --bind 0.0.0.0:8000
+        volumes:
+            - ./product_app/:/usr/src/product_app/
+        ports:
+            - 8000:8000
+        env_file:
+            - ./.env.prod
+        volumes:
+            - static_volume:/usr/src/app/static
+        depends_on:
+            - db
+    token_app:
+        build: 
+            context: ./token_app
+            dockerfile: Dockerfile.prod
+        command: gunicorn stg_token_project.wsgi:application --bind 0.0.0.0:3333
+        volumes:
+            - ./token_app/:/usr/src/token_app/
+        ports:
+            - 3333:3333
+        env_file:
+            - ./.env.prod
+        volumes:
+            - static_volume:/usr/src/app/static
+        depends_on:
+            - db
+    db:
+        image: postgres:12.0-alpine
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+    nginx:
+        build: ./nginx
+        ports:
+            - 1337:80
+        volumes:
+            - static_volume:/home/product_app/web/static
+        depends_on:
+            - product_app
+            - token_app
+            - db
+volumes:
+    postgres_data:
+    static_volume:

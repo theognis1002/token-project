@@ -13,6 +13,7 @@ fi
 
 python manage.py flush --no-input
 python manage.py migrate
+python manage.py collectstatic --noinput
 
 # load dummy data and remove file
 python manage.py loaddata initial_data.json

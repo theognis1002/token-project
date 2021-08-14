@@ -1,7 +1,8 @@
 # Instructions
 
-1. `chmod +x token_app/entrypoint.sh && chmod +x product-app/entrypoint.sh`
-1. `docker compose up --build`
+1. `chmod +x token_app/entrypoint.prod.sh product_app/entrypoint.prod.sh`
+ <!-- 1. `docker compose up --build` -->
+1. `docker compose -f docker-compose.prod.yml up --build`
 
 ### Create Admin User
 

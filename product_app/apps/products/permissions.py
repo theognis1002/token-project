@@ -14,14 +14,17 @@ class CustomPermission(permissions.BasePermission):
             str(access_token), settings.SECRET_KEY, algorithms=["HS256"]
         )
         user_permissions = decoded_jwt.get("permissions", [])
-        
+
         if "admin" in user_permissions:
             return True
 
         if request.method == "GET" and "read_product" in user_permissions:
             return True
 
-        if request.method in self.cud_operations and "manage_product" in user_permissions:
+        if (
+            request.method in self.cud_operations
+            and "manage_product" in user_permissions
+        ):
             return True
 
         return False

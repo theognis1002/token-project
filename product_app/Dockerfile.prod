@@ -20,10 +20,10 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY /initial_data.json .
 
 # copy entrypoint.sh
-COPY ./entrypoint.sh .
+COPY ./entrypoint.prod.sh .
 
 # copy project
 COPY . .
 
 # run entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
