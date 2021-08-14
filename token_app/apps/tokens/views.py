@@ -1,5 +1,4 @@
 from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
 from rest_framework.views import APIView
 from tokens.mixins import CreateTokenMixin
 
@@ -22,8 +21,3 @@ class ReadWriteTokenView(CreateTokenMixin, APIView):
 class AdminTokenView(CreateTokenMixin, APIView):
     permission_classes = (AllowAny,)
     obj_permissions = ("admin",)
-
-
-class TestView(APIView):
-    def get(self, request, format=None):
-        return Response({"data": []})

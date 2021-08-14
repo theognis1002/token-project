@@ -8,4 +8,6 @@ router.register(r"products/?", views.ProductModelViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("/admin", views.AdminProductList.as_view(), name="admin_product_list"),
+
 ]
