@@ -151,7 +151,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 NOSE_ARGS = [
     "--cover-erase",
-    "--cover-package=products",
+    "--cover-package=tokens",
     "--verbosity=3"
     # '--omit=*/migrations/*'
 ]

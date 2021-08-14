@@ -1,12 +1,24 @@
 [
 	{
 		"model": "products.product",
+		"pk": 1,
+		"fields": {
+			"name": "Coca Cola",
+			"description": "Soft drink",
+			"qty": 10,
+			"price": 1.0,
+			"date_added": "2021-08-12T23:51:20.305Z",
+			"soft_delete": false
+		}
+	},
+	{
+		"model": "products.product",
 		"pk": 2,
 		"fields": {
-			"name": "Sneaker",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
-			"price": 150.0,
+			"name": "Beach sandals",
+			"description": "Black Addidas sandals",
+			"qty": 22,
+			"price": 25.0,
 			"date_added": "2021-08-12T23:51:20.305Z",
 			"soft_delete": false
 		}
@@ -15,9 +27,9 @@
 		"model": "products.product",
 		"pk": 3,
 		"fields": {
-			"name": "Sneaker",
+			"name": "Air Jordan sneakers",
 			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
+			"qty": 5,
 			"price": 150.0,
 			"date_added": "2021-08-12T23:51:38.867Z",
 			"soft_delete": false
@@ -27,9 +39,9 @@
 		"model": "products.product",
 		"pk": 4,
 		"fields": {
-			"name": "Sneaker",
+			"name": "Haynes Socks",
 			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
+			"qty": 100,
 			"price": 150.0,
 			"date_added": "2021-08-12T23:51:40.903Z",
 			"soft_delete": false
@@ -39,58 +51,10 @@
 		"model": "products.product",
 		"pk": 5,
 		"fields": {
-			"name": "Hello",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 55,
-			"price": 33.0,
-			"date_added": "2021-08-12T23:51:41.720Z",
-			"soft_delete": false
-		}
-	},
-	{
-		"model": "products.product",
-		"pk": 6,
-		"fields": {
-			"name": "Sneaker",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
-			"price": 150.0,
-			"date_added": "2021-08-12T23:56:52.030Z",
-			"soft_delete": false
-		}
-	},
-	{
-		"model": "products.product",
-		"pk": 7,
-		"fields": {
-			"name": "Sneaker",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
-			"price": 150.0,
-			"date_added": "2021-08-12T23:56:55.242Z",
-			"soft_delete": false
-		}
-	},
-	{
-		"model": "products.product",
-		"pk": 8,
-		"fields": {
-			"name": "Sneaker",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
-			"price": 150.0,
-			"date_added": "2021-08-12T23:56:57.794Z",
-			"soft_delete": false
-		}
-	},
-	{
-		"model": "products.product",
-		"pk": 9,
-		"fields": {
-			"name": "Sneaker",
-			"description": "Air Jordans 1992. Red & Black.",
-			"qty": 1,
-			"price": 150.0,
+			"name": "Blue Shirt",
+			"description": "Cotton shirt. Medium size.",
+			"qty": 15,
+			"price": 22.5,
 			"date_added": "2021-08-12T23:57:00.822Z",
 			"soft_delete": false
 		}
