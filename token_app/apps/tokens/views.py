@@ -1,99 +1,29 @@
-from django.contrib.auth.models import User
-from rest_framework import authentication, permissions
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from tokens.mixins import CreateTokenMixin
 
 
-class TokenView(APIView):
-    """
-    View to list all users in the system.
-
-    * Requires token authentication.
-    * Only admin users are able to access this view.
-    """
-
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
+class ReadOnlyTokenView(CreateTokenMixin, APIView):
+    permission_classes = (AllowAny,)
+    obj_permissions = ("read_product",)
 
 
-class ReadAndManageTokenView(APIView):
-    """
-    View to list all users in the system.
-
-    * Requires token authentication.
-    * Only admin users are able to access this view.
-    """
-
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
+class WriteOnlyTokenView(CreateTokenMixin, APIView):
+    permission_classes = (AllowAny,)
+    obj_permissions = ("manage_product",)
 
 
-class ReadProductTokenView(APIView):
-    """
-    View to list all users in the system.
-
-    * Requires token authentication.
-    * Only admin users are able to access this view.
-    """
-
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
+class ReadWriteTokenView(CreateTokenMixin, APIView):
+    permission_classes = (AllowAny,)
+    obj_permissions = ("read_product", "manage_product")
 
 
-class ManageProductTokenView(APIView):
-    """
-    View to list all users in the system.
-
-    * Requires token authentication.
-    * Only admin users are able to access this view.
-    """
-
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
+class AdminTokenView(CreateTokenMixin, APIView):
+    permission_classes = (AllowAny,)
+    obj_permissions = ("admin",)
 
 
-class AdminTokenView(APIView):
-    """
-    View to list all users in the system.
-
-    * Requires token authentication.
-    * Only admin users are able to access this view.
-    """
-
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
-
-    def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
+class TestView(APIView):
+    def get(self, request, format=None):
+        return Response({"data": []})

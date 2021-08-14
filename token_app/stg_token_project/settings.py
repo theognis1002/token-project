@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import datetime
-from decouple import config
 import os
 import sys
 from pathlib import Path
+
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%u&pf%5fks!=8k+=$o=jis9qd-72u=67b$a5+1yr)7$#x6630*"
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,8 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "tokens",
     "rest_framework",
+    "tokens",
 ]
 
 MIDDLEWARE = [
@@ -109,34 +110,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 JWT_AUTH = {
-    "JWT_ENCODE_HANDLER": "rest_framework_jwt.utils.jwt_encode_handler",
-    "JWT_DECODE_HANDLER": "rest_framework_jwt.utils.jwt_decode_handler",
-    "JWT_PAYLOAD_HANDLER": "rest_framework_jwt.utils.jwt_payload_handler",
-    "JWT_PAYLOAD_GET_USER_ID_HANDLER": "rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler",
-    "JWT_RESPONSE_PAYLOAD_HANDLER": "rest_framework_jwt.utils.jwt_response_payload_handler",
-    "JWT_GET_USER_SECRET_KEY": None,
-    "JWT_PUBLIC_KEY": None,
-    "JWT_PRIVATE_KEY": None,
-    "JWT_ALGORITHM": "HS256",
-    "JWT_VERIFY": True,
-    "JWT_VERIFY_EXPIRATION": True,
-    "JWT_LEEWAY": 0,
-    "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=30),
-    "JWT_AUDIENCE": None,
-    "JWT_ISSUER": None,
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(minutes=10),
     "JWT_ALLOW_REFRESH": False,
-    "JWT_REFRESH_EXPIRATION_DELTA": datetime.timedelta(days=7),
     "JWT_AUTH_HEADER_PREFIX": "Bearer",
 }
+
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.BasicAuthentication",
     ),
 }
 # Internationalization
@@ -152,6 +136,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+APPEND_SLASH = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

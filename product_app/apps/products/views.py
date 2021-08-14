@@ -6,11 +6,15 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from .permissions import CustomPermission
+
 
 class ProductList(APIView):
     """
     List all Products, or create a new Product.
     """
+
+    permission_classes = (CustomPermission,)
 
     def get(self, request, format=None):
         products = Product.objects.active_only()
@@ -28,5 +32,4 @@ class ProductList(APIView):
 class ProductModelViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.active_only()
     serializer_class = ProductSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAdminUser]
+    permission_classes = (CustomPermission,)
