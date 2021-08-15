@@ -1,4 +1,6 @@
-# Setup
+# Summit Technology Group Assignment
+
+### Setup
 
 1.  `chmod +x token_app/entrypoint.prod.sh product_app/entrypoint.prod.sh`
 1.  `docker compose -f docker-compose.prod.yml up --build`
@@ -10,21 +12,18 @@
         curl --request POST \ --url http://0.0.0.0:3333/tokens/admin/ \ --header 'Content-Type: application/json' \ --data '{ "username": "admin", "password": "admin" }'
         ```
 1.  Use the JWT token to query the `Product Service` endpoints
-
     -   Example cURL:
-
-             ```
-             curl --request GET \
-             --url http://0.0.0.0:8000/products/ \
-             --header 'Authorization: Bearer <JWT_TOKEN>' \
-             --header 'Content-Type: application/json' \
-             --data '{
-             "name": "My Product",
-             "price": 10.0,
-             "qty": 500
-             }'
-
-             ```
+         ```
+         curl --request GET \
+         --url http://0.0.0.0:8000/products/ \
+         --header 'Authorization: Bearer <JWT_TOKEN>' \
+         --header 'Content-Type: application/json' \
+         --data '{
+         "name": "My Product",
+         "price": 10.0,
+         "qty": 500
+         }'
+         ```
 
 ### Product Endpoints
 
