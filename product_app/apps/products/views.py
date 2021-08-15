@@ -17,6 +17,7 @@ class ProductModelViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         instance.soft_delete = True
         instance.save()
+        print("yes")
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

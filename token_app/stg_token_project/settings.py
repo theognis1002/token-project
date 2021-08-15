@@ -153,5 +153,5 @@ NOSE_ARGS = [
     "--cover-erase",
     "--cover-package=tokens",
     "--verbosity=3"
-    # '--omit=*/migrations/*'
+    '--omit=*/migrations/*'
 ]

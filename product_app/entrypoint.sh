@@ -16,6 +16,5 @@ python manage.py migrate
 
 # load dummy data and remove file
 python manage.py loaddata initial_data.json
-rm initial_data.json
 
 exec "$@"
