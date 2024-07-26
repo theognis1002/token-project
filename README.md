@@ -1,4 +1,4 @@
-# Summit Technology Group Assignment
+# Token Project
 
 ### Setup
 
