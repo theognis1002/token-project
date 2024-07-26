@@ -1,13 +1,6 @@
-# Summit Inventory App
+# Token Project
 
 A Django backend app to be able to manage products inventory
-
-## Task submission
-
-To submit the assignment, please create a private GitHub repo and share the access with:
-
--   `GoelJatin`
--   `dennijo`
 
 ## Task description
 
